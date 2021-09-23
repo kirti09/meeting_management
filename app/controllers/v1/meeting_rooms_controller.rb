@@ -1,30 +1,34 @@
-class V1::MeetingRoomsController < ApplicationController
-	skip_before_action :verify_authenticity_token
+# frozen_string_literal: true
 
-	before_action :set_meeting_room, only: :destroy
+# Controller to manage meeting rooms
+module V1
+  class MeetingRoomsController < ApplicationController
+    skip_before_action :verify_authenticity_token
 
-	def create
-		@meeting_room = MeetingRoom.create(meeting_room_params)
-       if @meeting_room.save
-         render json: @meeting_room.as_json, status: :created
-       else
-         render json: @meeting_room.errors, status: :unprocessable_entity
-       end
-	end
+    before_action :set_meeting_room, only: :destroy
 
-	def destroy
-		@meeting_room.destroy
-		render json: 'Room Deleted Successfully!', status: 204
+    def create
+      @meeting_room = MeetingRoom.create(meeting_room_params)
+      if @meeting_room.save
+        render json: @meeting_room.as_json, status: :created
+      else
+        render json: @meeting_room.errors, status: :unprocessable_entity
+      end
+    end
+
+    def destroy
+      @meeting_room.destroy
+      render json: 'Room Deleted Successfully!', status: 204
+    end
+
+    private
+
+    def meeting_room_params
+      params.permit(:name, :capacity)
+    end
+
+    def set_meeting_room
+      @meeting_room = MeetingRoom.find_by(params[:id])
+    end
   end
-
-
-	private
-
-     def meeting_room_params
-       params.permit(:name, :capacity)
-     end
-
-     def set_meeting_room
-       @meeting_room = MeetingRoom.find_by(params[:id])
-     end
 end

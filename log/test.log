@@ -3446,3 +3446,132 @@ Processing by V1::MeetingRoomsController#destroy as HTML
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
 Completed 204 No Content in 2ms (Views: 0.1ms | ActiveRecord: 7.2ms | Allocations: 610)
   [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "meeting_rooms"[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "meeting_rooms" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "capacity" integer, "created_by_user" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "first_name" varchar, "last_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210920090547)[0m
+  [1m[35m (5.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210920090319);
+
+[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-09-23 07:28:51.616214"], ["updated_at", "2021-09-23 07:28:51.616214"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "2937eda399ae5f6fe1a8574a3594573b2b3247c9"], ["created_at", "2021-09-23 07:28:51.624976"], ["updated_at", "2021-09-23 07:28:51.624976"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by V1::MeetingRoomsController#create as HTML
+  Parameters: {"capacity"=>"10", "name"=>"varta"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? LIMIT ?[0m  [["name", "varta"], ["LIMIT", 1]]
+  [1m[36mMeetingRoom Create (3.1ms)[0m  [1m[32mINSERT INTO "meeting_rooms" ("name", "capacity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "varta"], ["capacity", 10], ["created_at", "2021-09-23 07:28:51.730156"], ["updated_at", "2021-09-23 07:28:51.730156"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? AND "meeting_rooms"."id" != ? LIMIT ?[0m  [["name", "varta"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 59ms (Views: 0.5ms | ActiveRecord: 4.2ms | Allocations: 7283)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by V1::MeetingRoomsController#create as HTML
+  Parameters: {"capacity"=>"10", "name"=>"varta"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? LIMIT ?[0m  [["name", "varta"], ["LIMIT", 1]]
+  [1m[36mMeetingRoom Create (2.7ms)[0m  [1m[32mINSERT INTO "meeting_rooms" ("name", "capacity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "varta"], ["capacity", 10], ["created_at", "2021-09-23 07:28:51.839119"], ["updated_at", "2021-09-23 07:28:51.839119"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? AND "meeting_rooms"."id" != ? LIMIT ?[0m  [["name", "varta"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 14ms (Views: 0.5ms | ActiveRecord: 3.3ms | Allocations: 1115)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by V1::MeetingRoomsController#create as HTML
+  Parameters: {"capacity"=>"50", "name"=>""}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 511ms (Views: 508.2ms | ActiveRecord: 0.4ms | Allocations: 339377)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by V1::MeetingRoomsController#create as HTML
+  Parameters: {"capacity"=>"50", "name"=>""}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 1253)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by V1::MeetingRoomsController#create as HTML
+  Parameters: {"capacity"=>"", "name"=>"gyan"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? LIMIT ?[0m  [["name", "gyan"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? LIMIT ?[0m  [["name", "gyan"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 1293)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by V1::MeetingRoomsController#create as HTML
+  Parameters: {"capacity"=>"", "name"=>"gyan"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? LIMIT ?[0m  [["name", "gyan"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? LIMIT ?[0m  [["name", "gyan"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1253)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by V1::MeetingRoomsController#create as HTML
+  Parameters: {"capacity"=>"100", "name"=>"default"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? LIMIT ?[0m  [["name", "default"], ["LIMIT", 1]]
+  [1m[36mMeetingRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "meeting_rooms" ("name", "capacity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "default"], ["capacity", 100], ["created_at", "2021-09-23 07:28:52.434120"], ["updated_at", "2021-09-23 07:28:52.434120"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "meeting_rooms" WHERE "meeting_rooms"."name" = ? AND "meeting_rooms"."id" != ? LIMIT ?[0m  [["name", "default"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1112)
+Processing by V1::MeetingRoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMeetingRoom Load (0.1ms)[0m  [1m[34mSELECT "meeting_rooms".* FROM "meeting_rooms" WHERE (1) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMeetingRoom Destroy (0.2ms)[0m  [1m[31mDELETE FROM "meeting_rooms" WHERE "meeting_rooms"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 204 No Content in 2ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 609)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
