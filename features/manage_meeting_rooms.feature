@@ -4,11 +4,23 @@ Feature: Manage Meeting Rooms
   I want to create and delete meeting rooms
 
   Scenario: Create Meeting Room
-    Given A POST request is made
-    When admin create a meeting room
-    And I fill in 'name' with 'Gyan'
-    And I fill in 'capacity' with '50'
-    Then I should see status '201'
-    And I should see 'Gyan'
-    And I should have 1 meeting room
+    When I send a POST request to "/v1/meeting_rooms" with the following:
+      | name | gyan |
+      | capacity   | '100' |
+    Then the response status should be "201"
 
+  Scenario: Create Meeting Room Without Name
+    When I send a POST request to "/v1/meeting_rooms" with the following:
+      | capacity   | '100' |
+    Then the following json response is sent:
+    """
+    {"name":["can't be blank"]}
+    """
+
+  Scenario: Create Meeting Room Without Capacity
+    When I send a POST request to "/v1/meeting_rooms" with the following:
+      | name | gyan |
+    Then the following json response is sent:
+    """
+    {"capacity":["can't be blank"]}
+    """
