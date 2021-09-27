@@ -3,5 +3,6 @@
 Rails.application.routes.draw do
   namespace :v1 do
     resources :meeting_rooms
+    resources :bookings, only: [:create]
   end
 end
