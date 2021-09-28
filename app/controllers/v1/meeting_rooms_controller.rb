@@ -3,8 +3,6 @@
 # Controller to manage meeting rooms
 module V1
   class MeetingRoomsController < ApplicationController
-    skip_before_action :verify_authenticity_token
-
     before_action :set_meeting_room, only: :destroy
 
     def create

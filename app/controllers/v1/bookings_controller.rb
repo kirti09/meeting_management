@@ -16,7 +16,7 @@ module V1
       # TODO: before save check whether the time slot is available, if not repond with 'Time slot not Available'
 
       if @booking.save
-        render json: @booking.as_json, status: :created
+        render json: @booking, status: :created
       else
         render json: @booking.errors, status: :unprocessable_entity
       end
