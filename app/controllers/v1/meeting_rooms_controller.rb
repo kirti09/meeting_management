@@ -10,7 +10,8 @@ module V1
     def create
       @meeting_room = MeetingRoom.create(meeting_room_params)
       if @meeting_room.save
-        render json: @meeting_room.as_json, status: :created
+        render json: { id: @meeting_room.id, name: @meeting_room.name, capacity: @meeting_room.capacity },
+               status: :created
       else
         render json: @meeting_room.errors, status: :unprocessable_entity
       end
