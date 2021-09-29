@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
-Given /^A POST request is made$/ do
-  puts 'hello'
-  # post "/v1/meeting_rooms"
+When(/^I send a POST request to "(.*)" with the following:$/) do |endpoint, table|
+  page.driver.post(endpoint, table.rows_hash)
 end
-Then /^the result should be in JSON:$/ do |str|
-  json_data = JSON.parse(last_response.body)
-  json_data.should == JSON.parse(str)
+
+Then(/^the following json response is sent:$/) do |message|
+  JSON.parse(page.body) == JSON.parse(message)
+end
+
+And(/^the response status should be "(.*)"$/) do |response_code|
+  expect(page.status_code).to eq(response_code.to_i)
 end
