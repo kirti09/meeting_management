@@ -4,5 +4,5 @@ class Booking < ApplicationRecord
   belongs_to :user, inverse_of: :bookings
   belongs_to :meeting_room, inverse_of: :bookings
 
-  validates :start_time, :end_time, :date, presence: true
+  validates :start_time, :end_time, presence: true
 end

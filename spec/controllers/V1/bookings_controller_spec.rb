@@ -16,8 +16,7 @@ RSpec.describe V1::BookingsController do
             user_id: user.id,
             meeting_room_id: available_meeting_room.id,
             start_time: "#{meeting_date}T05:00:00",
-            end_time: "#{meeting_date}T05:30:00",
-            date: meeting_date
+            end_time: "#{meeting_date}T05:30:00"
           }
         end
 
@@ -40,8 +39,7 @@ RSpec.describe V1::BookingsController do
             user_id: user.id,
             meeting_room_id: unavailable_meeting_room.id,
             start_time: "#{meeting_date}T05:00:00",
-            end_time: "#{meeting_date}T05:30:00",
-            date: meeting_date
+            end_time: "#{meeting_date}T05:30:00"
           }
         end
 
@@ -64,8 +62,7 @@ RSpec.describe V1::BookingsController do
           user_id: user.id,
           meeting_room_id: available_meeting_room.id,
           start_time: nil,
-          end_time: nil,
-          date: nil
+          end_time: nil
         }
       end
 
@@ -74,11 +71,10 @@ RSpec.describe V1::BookingsController do
       it 'returns an error response' do
         expect(json['start_time'].first).to match(/can't be blank/)
         expect(json['end_time'].first).to match(/can't be blank/)
-        expect(json['date'].first).to match(/can't be blank/)
       end
 
-      it 'returns status code 400' do
-        expect(response).to have_http_status(400)
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
       end
     end
   end
