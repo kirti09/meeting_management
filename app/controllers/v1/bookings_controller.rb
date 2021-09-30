@@ -7,7 +7,9 @@ module V1
 
     def create
       # Check whether Meeting Room is available.
-      return render json: {error: 'Sorry, Meeting Room not available for booking.'}, status: :ok unless @meeting_room.is_available?
+      unless @meeting_room.is_available?
+        return render json: { error: 'Sorry, Meeting Room not available for booking.' }, status: :ok
+      end
 
       # Book a Meeting Room for a User
       @booking = @user.bookings.build(
@@ -17,7 +19,6 @@ module V1
         date: params[:date]
       )
       # TODO: before save check whether the time slot is available, if not repond with 'Time slot not Available'
-
 
       if @booking.save
         render json: @booking, status: :created

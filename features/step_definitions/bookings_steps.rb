@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given('I am a registered user') do
   @user = User.create(first_name: 'user', last_name: 'one', email: 'user1@test.com')
 end
@@ -28,5 +30,3 @@ end
 Then('I receive an error response') do
   JSON.parse(page.body)['error'] == 'Sorry, Meeting Room not available for booking.'
 end
-
-

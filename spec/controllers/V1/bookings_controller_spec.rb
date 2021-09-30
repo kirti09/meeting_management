@@ -49,7 +49,7 @@ RSpec.describe V1::BookingsController do
 
         it 'returns response with error message ' do
           expect(json).not_to be_empty
-          expect(json["error"]).to match(/Sorry, Meeting Room not available for booking./)
+          expect(json['error']).to match(/Sorry, Meeting Room not available for booking./)
         end
 
         it 'returns status code 200' do
@@ -72,9 +72,9 @@ RSpec.describe V1::BookingsController do
       before { post 'create', params: invalid_attributes }
 
       it 'returns an error response' do
-        expect(json["start_time"].first).to match(/can't be blank/)
-        expect(json["end_time"].first).to match(/can't be blank/)
-        expect(json["date"].first).to match(/can't be blank/)
+        expect(json['start_time'].first).to match(/can't be blank/)
+        expect(json['end_time'].first).to match(/can't be blank/)
+        expect(json['date'].first).to match(/can't be blank/)
       end
 
       it 'returns status code 400' do
