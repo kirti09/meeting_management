@@ -1,17 +1,21 @@
 # frozen_string_literal: true
 
+Given('the following meeting_room exist') do |table|
+  @meeting_room = MeetingRoom.create!(table.rows_hash)
+end
+
 When('I send a DELETE request to {string} with id') do |string|
-  @meeting_room = MeetingRoom.create!(name: 'Test', capacity: 50)
+  @meeting_room = MeetingRoom.find_by_name('Test')
   url = string + @meeting_room.id.to_s
   page.driver.delete(url)
 end
 
-Then(/^the response status should be "(.*)"$/) do |response_code|
+Then(/^the response status should return "(.*)"$/) do |response_code|
   expect(page.status_code).to eq(response_code.to_i)
 end
 
-And('the same meeting_room can not find') do
-  @meeting_room = MeetingRoom.where(name: 'Test')
+And('the following meeting_room should not exist') do |table|
+  @meeting_room = MeetingRoom.where(table.rows_hash)
   expect(@meeting_room.count).to eq(0)
 end
 

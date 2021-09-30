@@ -4,9 +4,14 @@ Feature: Manage Meeting Rooms
   I want to create and delete meeting rooms
 
   Scenario: Destroy Meeting Room
+    Given the following meeting_room exist
+      | name     | Test |
+      | capacity | 100  |
     When I send a DELETE request to "/v1/meeting_rooms/" with id
-    Then the response status should be "204"
-    And the same meeting_room can not find
+    Then the response status should return "204"
+    And the following meeting_room should not exist
+      | name     | Test |
+      | capacity | 100  |
 
   Scenario: A user can create a Meeting room by sending a POST request with all required parameters
     When I send a POST request to "/v1/meeting_rooms" with the following:
