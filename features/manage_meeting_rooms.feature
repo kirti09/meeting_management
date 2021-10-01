@@ -5,9 +5,11 @@ Feature: Manage Meeting Rooms
 
   Scenario: Destroy Meeting Room
     Given the following meeting_room exist
+      | id       | 2    |
       | name     | Test |
       | capacity | 100  |
     When I send a DELETE request to "/v1/meeting_rooms/" with id
+      | id       | 2    |
     Then the response status should return "204"
     And the following meeting_room should not exist
       | name     | Test |

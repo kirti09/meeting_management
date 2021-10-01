@@ -4,8 +4,8 @@ Given('the following meeting_room exist') do |table|
   @meeting_room = MeetingRoom.create!(table.rows_hash)
 end
 
-When('I send a DELETE request to {string} with id') do |string|
-  @meeting_room = MeetingRoom.find_by_name('Test')
+When('I send a DELETE request to {string} with id') do |string, table|
+  @meeting_room = MeetingRoom.find_by(table.rows_hash)
   url = string + @meeting_room.id.to_s
   page.driver.delete(url)
 end
