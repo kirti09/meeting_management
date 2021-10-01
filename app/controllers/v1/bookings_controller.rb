@@ -4,6 +4,8 @@ module V1
   class BookingsController < ApplicationController
     before_action :set_meeting_room, only: [:create]
     before_action :set_user, only: [:create]
+    before_action :set_booking, only: :destroy
+
 
     def create
       # Check whether Meeting Room is available.
@@ -26,6 +28,15 @@ module V1
       end
     end
 
+    def destroy
+      if @booking.present?
+        @booking.destroy
+        render json: { message: 'Booking Cancelled Successfully!' }, status: 200
+      else
+        render json: { message: 'Booking not found' }, status: :unprocessable_entity
+      end
+    end
+
     private
 
     def set_meeting_room
@@ -34,6 +45,10 @@ module V1
 
     def set_user
       @user = User.find(params[:user_id])
+    end
+
+    def set_booking
+      @booking = Booking.where(id: params[:id]).last
     end
   end
 end
