@@ -23,10 +23,15 @@ Then(/^my booking is made successfully$/) do
   expect(booking.meeting_room_id).to eq(@payload[:meeting_room_id])
 end
 
-And(/^I receive valid response code "(.*)"$/) do |http_code|
+And(/^the response code is "(.*)"$/) do |http_code|
   expect(page.status_code).to eq(http_code.to_i)
 end
 
-Then(/^I receive an error response$/) do
-  JSON.parse(page.body)['error'] == 'Sorry, Meeting Room not available for booking.'
+Then(/^I receive the below error response:$/) do |error_response|
+  expect(JSON.parse(page.body)).to eq(JSON.parse(error_response))
+end
+
+When(/^I repeat the POST api request to endpoint "(.*)" with same params:$/) do |url, table|
+  @payload = table.rows_hash.merge!(user_id: @user.id, meeting_room_id: @meeting_room.id)
+  page.driver.post(url, @payload)
 end

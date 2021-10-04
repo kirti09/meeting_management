@@ -6,18 +6,12 @@ module V1
     before_action :set_user, only: [:create]
 
     def create
-      # Check whether Meeting Room is available.
-      unless @meeting_room.is_available?
-        return render json: { error: 'Sorry, Meeting Room not available for booking.' }, status: :ok
-      end
-
       # Book a Meeting Room for a User
       @booking = @user.bookings.build(
         meeting_room: @meeting_room,
         start_time: params[:start_time],
         end_time: params[:end_time]
       )
-      # TODO: before save check whether the time slot is available, if not repond with 'Time slot not Available'
 
       if @booking.save
         render json: @booking, status: :created
