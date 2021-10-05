@@ -1,0 +1,62 @@
+openapi: 3.0.2
+info:
+  title: Meeting Management system
+  description: Meeting Management system
+  contact:
+    name: Meeting Management
+  version: v1
+paths:
+  '/meeting_rooms':
+    post:
+      summary: Create a New Meeting Room
+      description: Create a New Meeting Room
+      operationId: Meeting.create
+      tags:
+        - meetings
+      parameters:
+        - $ref: '#/components/parameters/impersonationHeader'
+      responses:
+        '201':
+          description: Successful Operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Meetings'
+        '403':
+          description: ""
+        '422':
+          description: ""
+      requestBody:
+        description: Object data.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeetingCreateRequest'
+components:
+  parameters:
+    impersonationHeader:
+      name: ''
+      in: header
+      description: '[User impersonation]'
+      schema:
+        type: string
+  schemas:
+    MeetingCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Enter the name.
+        capacity:
+          type: integer
+          description: Enter the capacity number.
+    Meetings:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Return the name.
+
+
+
