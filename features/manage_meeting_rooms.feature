@@ -5,15 +5,16 @@ Feature: Manage Meeting Rooms
 
   Scenario: Destroy Meeting Room
     Given the following meeting_room exist
-      | id       | 2    |
-      | name     | Test |
-      | capacity | 100  |
+      | id    | name  | capacity |
+      | 2     | Test  | 100      |
+
     When I send a DELETE request to "/v1/meeting_rooms/" with id
-      | id       | 2    |
+      | id    |
+      | 2     |
     Then the response status should return "204"
     And the following meeting_room should not exist
-      | name     | Test |
-      | capacity | 100  |
+      | name  | capacity |
+      | Test  | 100      |
 
   Scenario: A user can create a Meeting room by sending a POST request with all required parameters
     When I send a POST request to "/v1/meeting_rooms" with the following:
